@@ -19,7 +19,7 @@ class database(BaseModel):
 query_tool = {
     "type": "function",
     "name": "query_database",
-    "description": "query anything you need from the database so you can respond to the user question and keep in mind we are using mysql database here so adjust your query to that and also we're  using the shop_analytics database so no need to check for the databases and don't change or add anything to the database don't edit anything you are only capable of retrieving data do not change anything in the data, and you can do one query at a time per tool call",
+    "description": "query anything you need from the database so you can respond to the user question and keep in mind we are using mysql database here so adjust your query to that and also we're using the shop_analytics database so no need to check for the databases and don't change or add anything to the database don't edit anything you are only capable of retrieving data do not change anything in the data, and you can do one query at a time per tool call, and also make sure that you have the necessary columns name etc before using arguments and other stuff if you don't know enough argument or columns get them and then query the database",
     "parameters": {
         "type": "object",
         "properties": { "query": {
@@ -34,7 +34,7 @@ message=f"you are a data analyst/scientist. the user will input an english query
 
 
 interaction = client.interactions.create(
-        model="gemini-3.5-flash-lite",
+        model="gemini-3.1-flash-lite",
         input=message,
         tools=[query_tool],
         response_format={
@@ -54,7 +54,7 @@ while not arewedone:
             print(results)
             message = f"role : tool, tool_id : {step.id} , name : {step.name}, results : {str(results)}"+"\n\n"+f"user_message or and context : {message}"
     interaction = client.interactions.create(
-        model="gemini-3.2-flash-lite",
+        model="gemini-3.1-flash-lite",
         input=message,
         tools=[query_tool],
         response_format={
