@@ -1,0 +1,23 @@
+[project]
+name = "youtube-automation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Aiden-Domochevski", email = "salahahadaf20@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "faker>=40.63.0",
+    "google-genai>=3.6.1",
+    "mysql-connector-python>=26.10.0",
+    "pydantic>=2.14.4",
+]
+
+[project.scripts]
+youtube-automation = "youtube_automation:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"

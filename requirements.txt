@@ -1,0 +1,53 @@
+# Core ML/AI
+torch>=2.0.0
+torchvision>=0.15.0  # For image loading backend in MultimodalParallaxDataset
+transformers>=4.30.0
+numpy<2  # Pin to 1.x for compatibility with scipy, scikit-learn, matplotlib, sentence-transformers
+
+# Data validation and schema
+pydantic>=2.0.0  # Required by schema.py, llm_story_engine.py for BaseModel classes
+
+# Text embeddings
+sentence-transformers>=2.2.0
+
+# Image Processing (for 2.5D parallax augmentation pipeline)
+Pillow>=9.0.0  # PIL image loading backend in MultimodalParallaxDataset
+
+# Visualization
+matplotlib>=3.5.0
+pycairo>=1.20.0
+manim>=0.17.0
+
+# Utilities
+tqdm>=4.65.0
+pyyaml>=6.0  # For configuration file loading
+
+# SMPL/AMASS processing
+smplx>=0.1.28  # SMPL-X body model library for motion processing
+chumpy>=0.70  # Legacy SMPL model loading (dependency for some older SMPL files)
+scipy>=1.9.0  # For scientific computing
+
+# BVH/Motion Capture processing
+bvh>=0.3  # For 100STYLE BVH file parsing
+
+# LLM Integration
+openai>=1.0.0
+python-dotenv>=1.0.0
+ollama>=0.1.0
+
+# Web Interface
+gradio>=4.0.0
+
+# HuggingFace Hub
+huggingface-hub>=0.20.0
+
+# Experiment Tracking (optional but recommended for full-featured training)
+wandb>=0.15.0  # Weights & Biases for experiment tracking
+
+# Async I/O (recommended for async_data_prep.py)
+aiofiles>=23.0.0  # Async file operations for pipeline
+
+# Physics Simulation (for DifferentiablePhysicsLoss in src/physics/brax_env.py)
+# These enable full physics evaluation without fallback to zero-loss placeholder
+jax[cuda12]>=0.4.20  # JAX with CUDA support for GPU physics
+brax>=0.10.0  # Differentiable physics engine for stick-figure simulation
